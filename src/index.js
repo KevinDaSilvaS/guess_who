@@ -13,10 +13,8 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log("socket")
     startGame(socket)
     sendRightCharacter();
-    console.log(socket.rightAnswer)
 
     socket.on('guess', (id) => {
         guess(socket, id);
@@ -28,7 +26,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
-        //startGame(socket)
         socket.broadcast.to(socket.roomName).emit('game', {
             msg: `PLAYER ${socket.id} DISCONNECTED. YOU WIN`,
             type: "sucess"
@@ -49,7 +46,6 @@ const startGame = (socket) => {
     
     socket.rightAnswer = Math.floor(Math.random() * 15);
     socket.lifes = 3;
-    console.log("CONNECTED TO:", roomName)
 }
 
 const sendRightCharacter = () => {
