@@ -1,0 +1,54 @@
+.cards {
+    background-color: cornflowerblue;
+    width: 60%;
+}
+
+.card {
+    background-color: aliceblue;
+    width: 15%;
+    display: inline-block;
+    margin: 1%;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.name {
+    text-align: center;
+    font-size: larger;
+    font-family: system-ui;
+}
+
+.discard {
+    filter: grayscale(1) !important;
+}
+
+.head {
+    background-color: #F96D86;
+    margin-left: -0.6%;
+    margin-top: -0.6%;
+    margin-bottom: 0.6%;
+    width: 98.2%;
+    padding: 1.4%;
+    color: #000000;
+    font-family: system-ui;
+    text-shadow: 5px 2px 8px #ffffff;
+}
+
+.otherPlayerChar {
+    background-color: #EE7D14;
+}
+
+#guesses {
+    float: right;
+    background-color: indianred;
+    padding: 1%;
+    border-radius: 30px;
+    color: white;
+    text-shadow: 0px 5px 5px #582c2c;
+    box-shadow: 0 5px 10px #9e4949;
+    margin-top: -4%;
+}
+
+.wrapper {
+    margin-right: -15%;
+}

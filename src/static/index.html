@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="playerName" class="head">----</div>
+    <p id="guesses"></p>
+    <div class="cards">
+        <div class="wrapper">
+            <div id="0" class="card" onclick="manageClick(this)">
+                <img src="img/bighead.svg" alt="">
+                <p class="name">Alice</p>
+            </div>
+            <div id="1" class="card" onclick="manageClick(this)">
+                <img src="img/sam.svg" alt="">
+                <p class="name">Sam</p>
+            </div>
+            <div id="2" class="card" onclick="manageClick(this)">
+                <img src="img/martha.svg" alt="">
+                <p class="name">Martha</p>
+            </div>
+            <div id="3" class="card" onclick="manageClick(this)">
+                <img src="img/larson.svg" alt="">
+                <p class="name">Larson</p>
+            </div>
+            <div id="4" class="card" onclick="manageClick(this)">
+                <img src="img/megan.svg" alt="">
+                <p class="name">Megan</p>
+            </div>
+            <div id="5" class="card" onclick="manageClick(this)">
+                <img src="img/lyn.svg" alt="">
+                <p class="name">Lyn</p>
+            </div>
+            <div id="6" class="card" onclick="manageClick(this)">
+                <img src="img/matt.svg" alt="">
+                <p class="name">Matt</p>
+            </div>
+            <div id="7" class="card" onclick="manageClick(this)">
+                <img src="img/lynda.svg" alt="">
+                <p class="name">Lynda</p>
+            </div>
+            <div id="8" class="card" onclick="manageClick(this)">
+                <img src="img/tim.svg" alt="">
+                <p class="name">Tim</p>
+            </div>
+            <div id="9" class="card" onclick="manageClick(this)">
+                <img src="img/lindsey.svg" alt="">
+                <p class="name">Lindsey</p>
+            </div>
+            <div id="10" class="card" onclick="manageClick(this)">
+                <img src="img/laura.svg" alt="">
+                <p class="name">Laura</p>
+            </div>
+            <div id="11" class="card" onclick="manageClick(this)">
+                <img src="img/zack.svg" alt="">
+                <p class="name">Zack</p>
+            </div>
+            <div id="12" class="card" onclick="manageClick(this)">
+                <img src="img/liz.svg" alt="">
+                <p class="name">Liz</p>
+            </div>
+            <div id="13" class="card" onclick="manageClick(this)">
+                <img src="img/tom.svg" alt="">
+                <p class="name">Tom</p>
+            </div>
+            <div id="14" class="card" onclick="manageClick(this)">
+                <img src="img/zari.svg" alt="">
+                <p class="name">Zari</p>
+            </div>
+        </div>
+    </div>
+    <div onclick="guessCard()">GUESS</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/card.js"></script>
+    <script src="js/guessActions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="js/notifications.js"></script>
+    <script>
+        let guesses = 3;
+        adjustGuesses(guesses);
+    </script>
+    <script>
+        const socket = io();
+        const actions = loadActions();
+        socket.on('game', function(data){
+            const {msg, type} = data;
+            notifications[type](msg);
+            if(type == "error" || type == "sucess") {
+                socket.emit('restart');
+                guesses = 3;
+                adjustGuesses(guesses);
+            }
+        });
+
+        socket.on('connection', function(playerName){
+            localStorage.setItem("name", playerName);
+            document.getElementById("playerName").innerHTML = `YOU: ${playerName}`;
+        });
+    </script>
+
+    <script>
+        let guessing;
+        const cards = document.getElementsByClassName("card");
+        var guessOptions = {};
+        
+        for (let i = 0; i < cards.length; i++) {
+            guessOptions[cards[i].id] = true;
+        }
+
+        const guessCard = () => {
+            if(guessing) return guessing = false;
+
+            return guessing = true;
+        }
+
+        const manageClick = (elem) => {
+            if(guessing) return click(elem, guess);
+
+            if(elem.classList[1] == "discard" 
+            || elem.classList[2] == "discard") return click(elem, addCard);
+
+            click(elem, discard);
+        }
+    </script>
+
+    <script>
+        socket.on('char', function(id){
+            try {
+                const previous = localStorage.getItem("otherPlayerChar");
+                document.getElementById(previous).classList.remove("otherPlayerChar");
+            } catch (error) {
+            }
+
+            localStorage.setItem("otherPlayerChar", id);
+            document.getElementById(id).classList.add("otherPlayerChar");
+        });
+    </script>
+</body>
+</html>
