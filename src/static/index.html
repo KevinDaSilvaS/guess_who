@@ -77,11 +77,11 @@
     <div id="chat">
         <div id="messages"> <p class="msg-send">example</p> </div>
 
-        <input type="text" placeholder="Is my hair color blue?">
+        <input type="text" id="text-msg-content" placeholder="Is my hair color blue?">
 
         <div onclick="guessCard()" id="guessBtn" class="btn">GUESS</div>
 
-        <div onclick="" class="btn">SEND</div>
+        <div onclick="sendMessage(socket)" class="btn">SEND</div>
     </div>
     
     <script src="/socket.io/socket.io.js"></script>
@@ -90,6 +90,7 @@
     <script src="js/guessActions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="js/notifications.js"></script>
+    <script src="js/chat.js"></script>
     <script>
         let guesses = 3;
         adjustGuesses(guesses);
@@ -105,6 +106,10 @@
                 guesses = 3;
                 adjustGuesses(guesses);
             }
+        });
+
+        socket.on('chat message', function(msg){
+            addReceivedMessage(msg);
         });
 
         socket.on('connection', function(playerName){
