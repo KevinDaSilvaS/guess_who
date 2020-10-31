@@ -1,7 +1,11 @@
 var chatMessages = document.getElementById("messages");
 
 const manageChat = () => {
-    console.log("Under construction")
+    const children = chatMessages.children;
+    
+    if (children.length > 10) {
+        children[0].remove();
+    }
 }
 
 const addReceivedMessage = (msg) => {
@@ -15,7 +19,9 @@ const addMessage = (msg) => {
 }
 
 const sendMessage = (socket) => {
-    const msg = document.getElementById("text-msg-content").nodeValue;
+    const textField = document.getElementById("text-msg-content");
+    const msg = textField.value;
+    textField.value = "";
     addMessage(msg);
     socket.emit('chat message', msg);
 }

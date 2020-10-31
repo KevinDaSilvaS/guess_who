@@ -90,10 +90,10 @@ input {
     width: 50%;
     margin-left: 1%;
     margin-bottom: 1%;
-    background-color: #ffffff;
+    background-color: #E6F4F1;
 }
 
 .msg-receive {
     margin-left: 45%;
-    background-color: #E6F4F1;
+    background-color: #ffffff;
 }
