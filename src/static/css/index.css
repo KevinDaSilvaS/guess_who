@@ -1,6 +1,7 @@
 .cards {
     background-color: cornflowerblue;
     width: 60%;
+    float: left;
 }
 
 .card {
@@ -51,4 +52,48 @@
 
 .wrapper {
     margin-right: -15%;
+}
+
+#chat {
+    width: 39%;
+    background-color: coral;
+    float: right;
+}
+
+input {
+    padding: 2%;
+    width: 93%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+.btn {
+    float: left;
+    text-align: center;
+    width: 44.5%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    background-color: #05b1e6;
+    padding: 2%;
+    font-weight: bolder;
+    color: white;
+    font-family: system-ui;
+}
+
+.guess {
+    box-shadow: 1px 1px 50px 48px #00c3ff;
+}
+
+.msg-send {
+    border-radius: 30px;
+    padding: 2%;
+    width: 50%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    background-color: #ffffff;
+}
+
+.msg-receive {
+    margin-left: 45%;
+    background-color: #E6F4F1;
 }

@@ -74,7 +74,16 @@
             </div>
         </div>
     </div>
-    <div onclick="guessCard()">GUESS</div>
+    <div id="chat">
+        <div id="messages"> <p class="msg-send">example</p> </div>
+
+        <input type="text" placeholder="Is my hair color blue?">
+
+        <div onclick="guessCard()" id="guessBtn" class="btn">GUESS</div>
+
+        <div onclick="" class="btn">SEND</div>
+    </div>
+    
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="js/card.js"></script>
@@ -114,8 +123,13 @@
         }
 
         const guessCard = () => {
-            if(guessing) return guessing = false;
+            const elem = document.getElementById("guessBtn").classList;
+            if(guessing) {
+                elem.remove("guess");
+                return guessing = false;
+            }
 
+            elem.add("guess");
             return guessing = true;
         }
 
