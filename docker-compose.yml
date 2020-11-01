@@ -1,0 +1,9 @@
+version: '3.3'
+
+services: 
+    guess:
+        image: guess
+        build: 
+            context: .
+        ports: 
+            - "2080-2095:2089"
