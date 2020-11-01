@@ -4,6 +4,9 @@ Guess Who game created using node js, express, and socket.io
 <h5>Project site</h5>
 [Link](https://guess-kevin.herokuapp.com/)
 
+Inline-style: 
+![alt text](https://github.com/KevinDaSilvaS/guess_who/blob/master/src/static/img/guess-kevin.herokuapp.com_.png "Demo image")
+
 <h1>HOW TO PLAY</h1>
 
 <h5>When two players are connected</h5>
