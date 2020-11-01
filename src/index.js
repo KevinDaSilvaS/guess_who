@@ -82,6 +82,6 @@ const guess = (socket, id) => {
     });
 }
 
-http.listen(2089, () => {
+http.listen(process.env.PORT || 2089, process.env.YOUR_HOST || '0.0.0.0', () => {
     console.log("listening on localhost:2089");
 });
