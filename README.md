@@ -25,13 +25,13 @@ Guess Who game created using node js, express, and socket.io
 <h3>How do i know my player id?</h3>
 <p>You have three chances to guess who you are and win the game if you guess it wrong 3 times you lost and a new game starts</p>
 
-<h5>More about the game</h5>
+<h3>More about the game</h3>
 [Game match](https://www.youtube.com/watch?v=iXXH8l0lCuM)
 
-<h5>How to run the project</h5>
+<h3>How to run the project</h3>
 ```
 "docker-compose up"
 ```
 
-<h5>Bigheads project</h5>
+<h3>Bigheads project</h3>
 [Link](https://github.com/RobertBroersma/bigheads)
