@@ -4,4 +4,4 @@ COPY . .
 
 RUN npm i
 
-CMD node src/
+CMD [ "node", "src/index.js" ]
