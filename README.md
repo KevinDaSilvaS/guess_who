@@ -1,6 +1,9 @@
 # guess_who
 Guess Who game created using node js, express, and socket.io
 
+<h5>Project site</h5>
+[Link](https://guess-kevin.herokuapp.com/)
+
 <h1>HOW TO PLAY</h1>
 
 <h5>When two players are connected</h5>
@@ -24,6 +27,9 @@ Guess Who game created using node js, express, and socket.io
 [Game match](https://www.youtube.com/watch?v=iXXH8l0lCuM)
 
 <h5>How to run the project</h5>
+```
+docker-compose up -d
+```
 ``` 
 docker-compose up -d 
 ```
