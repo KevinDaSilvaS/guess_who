@@ -4,7 +4,6 @@ Guess Who game created using node js, express, and socket.io
 <h5>Project site</h5>
 [Link](https://guess-kevin.herokuapp.com/)
 
-Inline-style: 
 ![alt text](https://github.com/KevinDaSilvaS/guess_who/blob/master/src/static/img/guess-kevin.herokuapp.com_.png "Demo image")
 
 <h1>HOW TO PLAY</h1>
@@ -30,9 +29,9 @@ Inline-style:
 [Game match](https://www.youtube.com/watch?v=iXXH8l0lCuM)
 
 <h5>How to run the project</h5>
-``` 
-docker-compose up -d
- ```
+```
+"docker-compose up"
+```
 
 <h5>Bigheads project</h5>
 [Link](https://github.com/RobertBroersma/bigheads)
