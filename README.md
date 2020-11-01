@@ -27,8 +27,9 @@ Guess Who game created using node js, express, and socket.io
 [Game match](https://www.youtube.com/watch?v=iXXH8l0lCuM)
 
 <h5>How to run the project</h5>
-``` docker-compose up -d 
-```
+``` 
+docker-compose up -d
+ ```
 
 <h5>Bigheads project</h5>
 [Link](https://github.com/RobertBroersma/bigheads)
