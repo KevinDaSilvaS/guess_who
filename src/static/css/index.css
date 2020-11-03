@@ -98,9 +98,9 @@ input {
     background-color: #ffffff;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1200px) {
     .cards {
-        width: 115%;
+        width: 117%;
     }
 
     .card {
